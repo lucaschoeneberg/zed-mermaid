@@ -2,6 +2,9 @@
 
 ## 0.2.0 — 2026-09-13
 
+Mermaid 12 compatibility and maintenance tooling contributed by Luca Schöneberg,
+listed alongside original author Gabriel Silva in the extension manifest.
+
 ### Language support
 
 - Migrate from monaqa's grammar at `90ae195b31933ceb9d079abfa8a3ad0a36fee4cc`

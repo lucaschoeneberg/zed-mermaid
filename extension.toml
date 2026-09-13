@@ -2,9 +2,9 @@ id = "mermaid"
 name = "Mermaid"
 version = "0.2.0"
 schema_version = 1
-authors = ["Gabriel Silva <gabe@gabe.id>"]
+authors = ["Gabriel Silva <gabe@gabe.id>", "Luca Schöneberg <37987646+lucaschoeneberg@users.noreply.github.com>"]
 description = "Mermaid 12 syntax highlighting, diagram outline, and YAML front matter."
-repository = "https://github.com/lucaschoeneberg/zed-mermaid"
+repository = "https://github.com/gabeins/zed-mermaid"
 
 [grammars.mermaid]
 repository = "https://github.com/lucaschoeneberg/zed-mermaid"

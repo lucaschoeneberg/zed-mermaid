@@ -2,17 +2,17 @@
 
 Mermaid language support for Zed, updated and tested against **Mermaid 12.0.0**
 (the current stable release checked on 2026-09-13).
-This is a fork of [gabeins/zed-mermaid](https://github.com/gabeins/zed-mermaid).
+Originally authored by Gabriel Silva. The Mermaid 12 compatibility update is
+contributed by Luca Schöneberg; original MIT notices are retained.
 
 The extension provides syntax highlighting for `.mermaid` / `.mmd` files and
 Mermaid code fences in Markdown, a diagram outline, and YAML front matter
 highlighting when Zed's YAML language is available. The original file associations,
 language name, extension ID, and `%%` line comments are preserved.
 
-## Install this fork
+## Try the Mermaid 12 update
 
-The extension gallery entry still points to the upstream extension. To use this
-fork:
+Until this update is published to the gallery, use the contributor's preview branch:
 
 ```sh
 git clone --branch update/mermaid-12 https://github.com/lucaschoeneberg/zed-mermaid.git
@@ -79,9 +79,12 @@ The tests validate parsing and queries; they do not assert rendered SVG appearan
 or replace an interactive Zed smoke test.
 
 Zed uses `grammars.mermaid.repository`, `rev`, and `path` from `extension.toml` to
-build the grammar. The manifest references an immutable commit in this fork and
+build the grammar. The manifest references an immutable commit in the contributor's fork and
 the `grammar/` subdirectory. After modifying grammar sources, commit those first,
-then update the manifest revision in a second commit. See
+then update the manifest revision in a second commit. After merging upstream,
+the maintainer can repoint the grammar repository and pin a reachable upstream
+commit. HTTPS grammar repositories may differ from the extension's repository;
+the source-content check still verifies the exact pinned grammar. See
 [grammar/README.md](grammar/README.md) for the maintenance workflow.
 
 ## Migrating Mermaid 12 diagrams

@@ -14,7 +14,7 @@ assert.equal(language.name, "Mermaid");
 assert.deepEqual(language.path_suffixes, ["mermaid", "mmd"]);
 assert.deepEqual(language.line_comments, ["%% "]);
 const grammar = manifest.grammars[language.grammar];
-assert.equal(grammar.repository, manifest.repository);
+assert.equal(new URL(grammar.repository).protocol, "https:");
 assert.equal(grammar.path, "grammar");
 assert.match(grammar.rev, /^[a-f0-9]{40}$/);
 assert.equal(metadata.grammars[0].name, language.grammar);
