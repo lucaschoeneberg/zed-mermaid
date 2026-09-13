@@ -1,0 +1,142 @@
+[
+  {
+    "file": "agentflow.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/agentflow.md"
+  },
+  {
+    "file": "architecture.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/architecture.md"
+  },
+  {
+    "file": "block.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/block.md"
+  },
+  {
+    "file": "c4.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/c4.md"
+  },
+  {
+    "file": "classDiagram.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/classDiagram.md"
+  },
+  {
+    "file": "cynefin.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/cynefin.md"
+  },
+  {
+    "file": "entityRelationshipDiagram.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/entityRelationshipDiagram.md"
+  },
+  {
+    "file": "eventmodeling.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/eventmodeling.md"
+  },
+  {
+    "file": "flowchart.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/flowchart.md"
+  },
+  {
+    "file": "gantt.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/gantt.md"
+  },
+  {
+    "file": "gitgraph.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/gitgraph.md"
+  },
+  {
+    "file": "ishikawa.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/ishikawa.md"
+  },
+  {
+    "file": "kanban.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/kanban.md"
+  },
+  {
+    "file": "mindmap.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/mindmap.md"
+  },
+  {
+    "file": "packet.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/packet.md"
+  },
+  {
+    "file": "pie.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/pie.md"
+  },
+  {
+    "file": "quadrantChart.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/quadrantChart.md"
+  },
+  {
+    "file": "radar.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/radar.md"
+  },
+  {
+    "file": "railroad-0.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/railroad.md"
+  },
+  {
+    "file": "railroad-1.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/railroad.md"
+  },
+  {
+    "file": "railroad-2.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/railroad.md"
+  },
+  {
+    "file": "railroad-3.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/railroad.md"
+  },
+  {
+    "file": "requirementDiagram.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/requirementDiagram.md"
+  },
+  {
+    "file": "sankey.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/sankey.md"
+  },
+  {
+    "file": "sequenceDiagram.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/sequenceDiagram.md"
+  },
+  {
+    "file": "stateDiagram.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/stateDiagram.md"
+  },
+  {
+    "file": "swimlanes.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/swimlanes.md"
+  },
+  {
+    "file": "timeline.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/timeline.md"
+  },
+  {
+    "file": "treeView.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/treeView.md"
+  },
+  {
+    "file": "treemap.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/treemap.md"
+  },
+  {
+    "file": "usecase.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/usecase.md"
+  },
+  {
+    "file": "userJourney.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/userJourney.md"
+  },
+  {
+    "file": "venn.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/venn.md"
+  },
+  {
+    "file": "wardley.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/wardley.md"
+  },
+  {
+    "file": "xyChart.mmd",
+    "source": "https://github.com/mermaid-js/mermaid/blob/mermaid%4012.0.0/packages/mermaid/src/docs/syntax/xyChart.md"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "name": "zed-mermaid",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Mermaid 12 language support for Zed",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "generate": "cd grammar && tree-sitter generate --abi 15",
+    "build": "node scripts/build.mjs",
+    "lint": "prettier --check . && node scripts/check-config.mjs",
+    "test:grammar": "node scripts/test-grammar.mjs",
+    "test": "npm run test:grammar && node --test test/*.test.mjs",
+    "check": "npm run lint && npm run build && npm test"
+  },
+  "devDependencies": {
+    "jsdom": "30.0.1",
+    "mermaid": "12.0.0",
+    "prettier": "3.9.6",
+    "smol-toml": "1.8.0",
+    "tree-sitter-cli": "0.27.0",
+    "web-tree-sitter": "0.27.0"
+  },
+  "overrides": {
+    "lodash-es": "4.18.1"
+  }
+}

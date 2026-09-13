@@ -1,177 +1,364 @@
-[
- "sequenceDiagram"
- "classDiagram"
- "classDiagram-v2"
- "stateDiagram"
- "stateDiagram-v2"
- "gantt"
- "pie"
- "flowchart"
- "erdiagram"
-
- "participant"
- "as"
- "activate"
- "deactivate"
- "note "
- "over"
- "link"
- "links"
- ; "left of"
- ; "right of"
- "properties"
- "details"
- "title"
- "loop"
- "rect"
- "opt"
- "alt"
- "else"
- "par"
- "and"
- "end"
- (sequence_stmt_autonumber)
- (note_placement_left)
- (note_placement_right)
-
- "class"
-
- "state "
-
- "dateformat"
- "inclusiveenddates"
- "topaxis"
- "axisformat"
- "includes"
- "excludes"
- "todaymarker"
- "title"
- "section"
-
- "direction"
- "subgraph"
-
- ] @keyword
+; Adapted from pappasam/tree-sitter-mermaid; see grammar/LICENSE.
+(diagram_type) @type
+(direction) @constant
 
 [
- (comment)
- ] @comment
+  "title"
+  "accTitle"
+  "accDescr"
+] @keyword
+
+(title_statement text: (line_text) @string)
+(accessibility_title_statement text: (line_text) @string)
+(accessibility_description_statement text: (line_text) @string)
+(accessibility_description_statement block: (brace_text) @string)
+
+(directive) @attribute
+(comment) @comment
+(frontmatter_delimiter) @preproc
 
 [
- ":"
- (sequence_signal_plus_sign)
- (sequence_signal_minus_sign)
+  "direction"
+  "subgraph"
+  "end"
+  "classDef"
+  "class"
+  "state"
+  "note"
+  "for"
+  "style"
+  "linkStyle"
+  "interpolate"
+  "click"
+  "href"
+  "call"
+] @keyword
 
- (class_visibility_public)
- (class_visibility_private)
- (class_visibility_protected)
- (class_visibility_internal)
+(flow_node id: (identifier) @variable)
+(standalone_flow_node id: (identifier) @variable)
+(class_def_statement name: (identifier) @type)
+(flow_diagram
+  (flow_statement
+    (class_statement
+      targets: (identifier_list (identifier) @variable)
+      class_name: (identifier) @type)))
+(style_statement target: (identifier) @variable)
+(link_style_statement target: (number_list (number) @number))
+(link_style_statement target: "default" @constant)
+(click_statement target: (identifier) @variable)
+(subgraph_statement id: (identifier) @type)
 
- (state_division)
- ] @punctuation.delimiter
+(class_annotation
+  ":::" @punctuation.special
+  name: (identifier) @type)
 
-[
- "("
- ")"
- "{"
- "}"
- ] @punctuation.bracket
+(style_property
+  name: (style_property_name) @property
+  ":" @punctuation.delimiter
+  value: (style_value) @string.special)
 
-[
- "-->"
- (solid_arrow)
- (dotted_arrow)
- (solid_open_arrow)
- (dotted_open_arrow)
- (solid_cross)
- (dotted_cross)
- (solid_point)
- (dotted_point)
- ] @operator
+(flow_edge operator: (arrow) @operator)
+(flow_edge
+  operator: (arrow_start) @operator
+  operator_end: (arrow) @operator)
+(edge_id id: (identifier) @label)
+(edge_label text: (_) @string)
 
-[
- (class_reltype_aggregation)
- (class_reltype_extension)
- (class_reltype_composition)
- (class_reltype_dependency)
- (class_linetype_solid)
- (class_linetype_dotted)
- "&"
- ] @operator
-
-(sequence_actor) @field
-(class_name) @field
-
-(state_name) @field
-
-(gantt_task_text) @field
-
-[
- (class_annotation_line)
- (class_stmt_annotation)
- (class_generics)
-
- (state_annotation_fork)
- (state_annotation_join)
- (state_annotation_choice)
- ] @type
-
-(directive) @include
-
-(pie_label) @string
-(pie_value) @float
+(shape_data) @attribute
 
 [
-(flowchart_direction_lr)
-(flowchart_direction_rl)
-(flowchart_direction_tb)
-(flowchart_direction_bt)
- ] @constant
-
-(flow_vertex_id) @field
-
-[
- (flow_link_arrow)
- (flow_link_arrow_start)
- ] @operator
-
-(flow_link_arrowtext "|" @punctuation.bracket)
-
-(flow_vertex_square        [ "[" "]" ]   @punctuation.bracket )
-(flow_vertex_circle        ["((" "))"]   @punctuation.bracket )
-(flow_vertex_ellipse       ["(-" "-)"]   @punctuation.bracket )
-(flow_vertex_stadium       ["([" "])"]   @punctuation.bracket )
-(flow_vertex_subroutine    ["[[" "]]"]   @punctuation.bracket )
-(flow_vertex_rect          ["[|" "|]"]   @punctuation.bracket )
-(flow_vertex_cylinder      ["[(" ")]"]   @punctuation.bracket )
-(flow_vertex_round         ["(" ")"]     @punctuation.bracket )
-(flow_vertex_diamond       ["{" "}"]     @punctuation.bracket )
-(flow_vertex_hexagon       ["{{" "}}"]   @punctuation.bracket )
-(flow_vertex_odd           [">" "]"]     @punctuation.bracket )
-(flow_vertex_trapezoid     ["[/" "\\]"]  @punctuation.bracket )
-(flow_vertex_inv_trapezoid ["[\\" "/]"]  @punctuation.bracket )
-(flow_vertex_leanright     ["[/" "/]"]   @punctuation.bracket )
-(flow_vertex_leanleft      ["[\\" "\\]"] @punctuation.bracket )
-
-(flow_stmt_subgraph ["[" "]"] @punctuation.bracket )
+  "["
+  "]"
+  "("
+  ")"
+  "{"
+  "}"
+  "[["
+  "]]"
+  "(("
+  "))"
+  "((("
+  ")))"
+  "(["
+  "])"
+  "[("
+  ")]"
+  "{{"
+  "}}"
+  "[/"
+  "/]"
+  "[\\"
+  "\\]"
+  ">"
+] @punctuation.bracket
 
 [
- (er_cardinarity_zero_or_one)
- (er_cardinarity_zero_or_more)
- (er_cardinarity_one_or_more)
- (er_cardinarity_only_one)
- (er_reltype_non_identifying)
- (er_reltype_identifying)
- ] @operator
+  "group"
+  "service"
+  "junction"
+  "in"
+  "complex"
+  "complicated"
+  "clear"
+  "chaotic"
+  "confusion"
+  "places"
+  "contains"
+  "entity"
+  "data"
+  "dateFormat"
+  "section"
+  "after"
+  "gwt"
+  "tf"
+  "timeframe"
+  "rf"
+  "resetframe"
+  "commit"
+  "branch"
+  "merge"
+  "checkout"
+  "switch"
+  "cherry-pick"
+  "showInfo"
+  "showData"
+  "quadrant"
+  "axis"
+  "curve"
+  "showLegend"
+  "ticks"
+  "max"
+  "min"
+  "graticule"
+  "size"
+  "evolution"
+  "anchor"
+  "component"
+  "label"
+  "evolve"
+  "pipeline"
+  "note"
+  "annotations"
+  "annotation"
+  "accelerator"
+  "deaccelerator"
+] @keyword
 
-(er_entity_name) @field
+(architecture_group_statement id: (identifier) @type)
+(architecture_group_statement parent: (identifier) @type)
+(architecture_service_statement id: (identifier) @variable)
+(architecture_service_statement parent: (identifier) @type)
+(architecture_junction_statement id: (identifier) @variable)
+(architecture_junction_statement parent: (identifier) @type)
+(architecture_edge_statement
+  source: (identifier) @variable
+  edge: (architecture_arrow) @operator
+  target: (identifier) @variable)
 
-(er_attribute_type) @type
-(er_attribute_name) @field
+(architecture_icon) @attribute
+(architecture_group_marker) @attribute
+(architecture_title) @string
+
+(class_note_statement
+  target: (identifier) @type)
+(class_note_text "\"" @punctuation.delimiter)
+(class_note_text_fragment) @string
+
+(class_relationship_statement
+  source: (identifier) @type
+  operator: (class_relationship_operator) @operator
+  target: (identifier) @type)
+
+(class_member_statement class: (identifier) @type)
+(class_block name: (identifier) @type)
+(class_entity_statement name: (identifier) @type)
+(class_property visibility: (class_visibility) @operator)
+(class_property type: (identifier) @type)
+(class_property name: (identifier) @property)
+(class_method visibility: (class_visibility) @operator)
+(class_method type: (identifier) @type)
+(class_method name: (identifier) @function)
+
+((er_relationship_statement
+  source: (identifier) @type
+  relationship: (er_relationship_label) @keyword
+  target: (identifier) @type))
+
+((er_relationship_statement
+  source: (identifier) @type
+  operator: (er_relationship_operator) @operator
+  target: (identifier) @type))
+(er_relationship_statement label: (_) @string)
+
+(er_entity_block
+  name: (identifier) @type)
+(er_entity_alias text: (_) @string)
+(er_entity_attribute_statement
+  type: (identifier) @type
+  name: (identifier) @property)
+(er_attribute_key) @constant
+(er_entity_attribute_statement
+  comment: (quoted_string) @string)
+
+((er_attribute_statement
+  entity: (identifier) @type
+  attribute: (identifier) @property))
+
+(gantt_date_format_statement format: (gantt_date_format) @string.special)
+(gantt_section_statement name: (gantt_section_name) @type)
+(gantt_task_statement label: (gantt_task_label) @string)
+(gantt_task_statement status: (gantt_task_status) @keyword)
+(gantt_task_statement id: (identifier) @label)
+(gantt_task_statement date: (gantt_date) @number)
+(gantt_task_statement duration: (gantt_duration) @number)
+(gantt_task_statement dependency: (identifier) @label)
+
+(git_option name: (git_option_name) @property)
+(git_option ":" @punctuation.delimiter)
+((git_option
+  name: (git_option_name) @_git_option_name
+  value: (quoted_string) @string)
+ (#eq? @_git_option_name "msg"))
+((git_option
+  name: (git_option_name) @_git_option_name
+  value: (number) @number)
+ (#eq? @_git_option_name "order"))
+((git_option
+  name: (git_option_name) @_git_option_name
+  value: [
+    (identifier)
+    (quoted_string)
+  ] @label)
+ (#match? @_git_option_name "^(id|tag|parent)$"))
+((git_option
+  name: (git_option_name) @_git_option_name
+  value: (identifier) @constant)
+ (#eq? @_git_option_name "type"))
+((git_graph_statement name: (identifier) @label))
+((git_graph_statement name: (quoted_string) @label))
+((git_graph_statement branch: (identifier) @label))
+((git_graph_statement branch: (quoted_string) @label))
+
+(journey_section_statement name: (journey_section_name) @type)
+(journey_task_statement label: (journey_task_label) @string)
+(journey_task_statement score: (number) @number)
+(journey_task_statement actor: (identifier) @variable)
+
+(mindmap_root_keyword) @keyword
+(mindmap_icon_marker) @keyword
+(mindmap_icon_name) @attribute
+(mindmap_label_fragment) @string
+
+(packet_statement label: (quoted_string) @string)
+
+(pie_statement
+  label: (quoted_string) @string
+  value: (number) @number)
+
+(quadrant_axis_statement
+  axis: (quadrant_axis_name) @keyword
+  from: (quadrant_axis_text) @string
+  (quadrant_axis_arrow) @operator
+  to: (quadrant_axis_text) @string)
+
+(quadrant_section_statement
+  number: (number) @constant
+  label: (quadrant_text) @string)
+
+(quadrant_point_statement
+  label: (quadrant_point_label) @variable
+  x: (number) @number
+  y: (number) @number)
+
+(radar_axis name: (identifier) @variable)
+(radar_curve name: (identifier) @variable)
+(radar_option name: (radar_option_name) @property)
+(radar_option value: (number) @number)
+(radar_option value: (boolean) @boolean)
+(radar_option value: ["circle" "polygon"] @constant)
+
+((requirement_block
+  kind: (requirement_kind) @keyword
+  name: (identifier) @label))
+
+((requirement_property_statement
+  name: (requirement_property_name) @property
+  ":" @punctuation.delimiter
+  value: [
+    (requirement_property_value)
+    (quoted_string)
+  ] @string))
+
+((requirement_property_statement
+  name: (requirement_property_name) @property
+  value: (requirement_id) @label))
+
+((requirement_relationship_statement
+  source: (identifier) @label
+  operator: (requirement_relationship_operator) @operator
+  relationship: (requirement_relationship_type) @keyword
+  target: (identifier) @label))
+
+(sequence_message_statement
+  source: (sequence_actor) @variable
+  arrow: (sequence_arrow) @operator
+  target: (sequence_actor) @variable)
+
+(sequence_participant_keyword) @keyword
+(sequence_participant_statement name: (sequence_actor) @variable)
+(sequence_as_keyword) @keyword
+(sequence_autonumber_keyword) @keyword
+(sequence_loop_keyword) @keyword
+(sequence_note_keyword) @keyword
+(sequence_of_keyword) @keyword
+(sequence_message_text_fragment) @string
+(sequence_note_statement
+  target: (sequence_actor_list (sequence_actor) @variable))
+(sequence_note_side_position) @keyword
+(sequence_note_over_position) @keyword
+
+(state_declaration_statement name: (identifier) @type)
+(state_marker) @constant
+(state_transition_statement source: (identifier) @type)
+(state_transition_statement target: (identifier) @type)
+(state_transition_statement label: (state_transition_label) @string)
+(state_transition_statement
+  arrow: (state_arrow) @operator)
+
+(state_diagram
+  (class_statement
+    targets: (identifier_list (identifier) @type)
+    class_name: (identifier) @type))
+
+(timeline_section_statement name: (timeline_section_name) @type)
+(timeline_event_statement time: (timeline_time) @variable)
+(timeline_event_statement ":" @punctuation.delimiter)
+(timeline_text_fragment) @string
+
+(tree_item_statement name: (quoted_string) @string)
+(tree_icon_annotation) @attribute
+(tree_description_annotation) @comment
+
+(quoted_string) @string
+(number) @number
+(boolean) @boolean
+(label_text_fragment) @string
+(html_tag) @tag
 
 [
- (er_attribute_key_type_pk)
- (er_attribute_key_type_fk)
- ] @keyword
+  ":"
+  ","
+  ";"
+  "@"
+  "|"
+] @punctuation.delimiter
 
-(er_attribute_comment) @string
+; Fork additions for Mermaid 12 and legacy sequence controls.
+(agent_flow_statement "flow" @keyword id: (identifier) @type)
+(usecase_declaration keyword: _ @keyword name: (_) @variable)
+(sequence_control_keyword) @keyword
+; Conservative token highlights for statements the tolerant grammar cannot yet structure.
+(unknown_statement (identifier) @variable)
+(flow_node_statement id: (identifier) @variable)
+(block_open) @keyword
+(pie_diagram_header title: (line_text) @string)

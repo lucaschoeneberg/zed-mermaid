@@ -1,11 +1,12 @@
 id = "mermaid"
 name = "Mermaid"
-version = "0.1.0"
+version = "0.2.0"
 schema_version = 1
 authors = ["Gabriel Silva <gabe@gabe.id>"]
-description = "Mermaid support."
-repository = "https://github.com/gabeins/zed-mermaid"
+description = "Mermaid 12 syntax highlighting, diagram outline, and YAML front matter."
+repository = "https://github.com/lucaschoeneberg/zed-mermaid"
 
 [grammars.mermaid]
-repository = "https://github.com/monaqa/tree-sitter-mermaid"
-commit = "90ae195b31933ceb9d079abfa8a3ad0a36fee4cc"
+repository = "https://github.com/lucaschoeneberg/zed-mermaid"
+rev = "27ef5d38e1df02010ffa95a1dc85a5bff2139f28"
+path = "grammar"

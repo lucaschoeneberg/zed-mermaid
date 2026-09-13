@@ -1,0 +1,11 @@
+---
+config:
+  layout: elk
+  theme: redux-color
+  look: neo
+---
+flowchart LR
+  graphNode@{ shape: rect, label: "Graph node" }
+  blockArrow@{ shape: doc, label: "Document" }
+  graphNode e1@--> blockArrow
+  e1@{ animate: true, animation: fast }

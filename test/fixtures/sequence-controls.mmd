@@ -1,0 +1,12 @@
+sequenceDiagram
+  autonumber 1 2
+  participant Alice
+  participant Bob
+  Alice->>Bob: Hello
+  activate Bob
+  alt Ready
+    Bob-->>Alice: OK
+  else Busy
+    Bob-->>Alice: Retry
+  end
+  deactivate Bob

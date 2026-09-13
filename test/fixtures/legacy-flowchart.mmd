@@ -1,0 +1,9 @@
+graph TD
+  A[Start] --> B{Decision}
+  B -->|Yes| C((Done))
+  B -.-> D[Retry]
+  subgraph Group
+    D --> A
+  end
+  classDef active fill:#fff,stroke:#333
+  class C active
