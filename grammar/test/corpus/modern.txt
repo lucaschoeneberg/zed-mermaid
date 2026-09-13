@@ -1,0 +1,919 @@
+==================
+frontmatter
+==================
+
+---
+title: Highlighting Samples
+tags:
+  - mermaid
+---
+flowchart LR
+A --> B
+
+---
+
+(source_file
+  (frontmatter
+    (frontmatter_delimiter)
+    (frontmatter_body
+      (frontmatter_line
+        (frontmatter_content))
+      (frontmatter_line
+        (frontmatter_content))
+      (frontmatter_line
+        (indentation)
+        (frontmatter_content)))
+    (frontmatter_delimiter))
+  (diagram
+    (flow_diagram
+      (flow_diagram_header
+        (diagram_type)
+        (direction))
+      (flow_statement
+        (flow_edge_statement
+          (flow_node
+            (identifier))
+          (flow_edge
+            (arrow))
+          (flow_node
+            (identifier)))))))
+
+==================
+langium backed diagrams
+==================
+
+architecture-beta
+group api(cloud)[API]
+service web(server)[Web] in api
+junction j1 in api
+web:R--L:j1
+
+pie showData
+"Dogs": 42
+"Cats": 13
+
+packet-beta
+0-7: "Version"
++16: "Payload"
+
+gitGraph LR:
+commit id: "a1" tag: "v1"
+branch feature order: 2
+checkout feature
+
+---
+
+(source_file
+  (diagram
+    (architecture_diagram
+      (architecture_diagram_header
+        type: (diagram_type))
+      (architecture_statement
+        (architecture_group_statement
+          id: (identifier)
+          icon: (architecture_icon)
+          label: (architecture_title
+            (label_text
+              (label_text_fragment)))))
+      (architecture_statement
+        (architecture_service_statement
+          id: (identifier)
+          icon: (architecture_icon)
+          label: (architecture_title
+            (label_text
+              (label_text_fragment)))
+          parent: (identifier)))
+      (architecture_statement
+        (architecture_junction_statement
+          id: (identifier)
+          parent: (identifier)))
+      (architecture_statement
+        (architecture_edge_statement
+          source: (identifier)
+          edge: (architecture_arrow)
+          target: (identifier)))))
+  (diagram
+    (pie_diagram
+      (pie_diagram_header
+        type: (diagram_type))
+      (pie_statement
+        label: (quoted_string)
+        value: (number))
+      (pie_statement
+        label: (quoted_string)
+        value: (number))))
+  (diagram
+    (packet_diagram
+      (packet_diagram_header
+        type: (diagram_type))
+      (packet_statement
+        range: (number)
+        range: (number)
+        label: (quoted_string))
+      (packet_statement
+        range: (number)
+        label: (quoted_string))))
+  (diagram
+    (git_graph_diagram
+      (git_graph_diagram_header
+        type: (diagram_type)
+        direction: (direction))
+      (git_graph_statement
+        (git_option
+          name: (git_option_name)
+          value: (quoted_string))
+        (git_option
+          name: (git_option_name)
+          value: (quoted_string)))
+      (git_graph_statement
+        name: (identifier)
+        (git_option
+          name: (git_option_name)
+          value: (number)))
+      (git_graph_statement
+        branch: (identifier)))))
+
+==================
+adjacent scoped diagrams
+==================
+
+flowchart TD
+A --> B
+gitGraph LR:
+commit id: "a1"
+pie showData
+"Dogs": 42
+
+---
+
+(source_file
+  (diagram
+    (flow_diagram
+      (flow_diagram_header
+        (diagram_type)
+        (direction))
+      (flow_statement
+        (flow_edge_statement
+          (flow_node
+            (identifier))
+          (flow_edge
+            (arrow))
+          (flow_node
+            (identifier))))))
+  (diagram
+    (git_graph_diagram
+      (git_graph_diagram_header
+        (diagram_type)
+        (direction))
+      (git_graph_statement
+        (git_option
+          (git_option_name)
+          (quoted_string)))))
+  (diagram
+    (pie_diagram
+      (pie_diagram_header
+        (diagram_type))
+      (pie_statement
+        (quoted_string)
+        (number)))))
+
+==================
+er diagram shorthand
+==================
+
+erDiagram
+title Entity Relationship
+CUSTOMER places ORDER
+ORDER contains LINE_ITEM
+CUSTOMER id email
+ORDER id created_at
+
+---
+
+(source_file
+  (diagram
+    (er_diagram
+      (er_diagram_header
+        (diagram_type))
+      (common_statement
+        (title_statement
+          (line_text)))
+      (er_relationship_statement
+        (identifier)
+        (er_relationship_label)
+        (identifier))
+      (er_relationship_statement
+        (identifier)
+        (er_relationship_label)
+        (identifier))
+      (er_attribute_statement
+        (identifier)
+        (identifier)
+        (identifier))
+      (er_attribute_statement
+        (identifier)
+        (identifier)
+        (identifier)))))
+
+==================
+indented er diagram body
+==================
+
+erDiagram
+  title Entity Relationship
+  CUSTOMER places ORDER
+  ORDER contains LINE_ITEM
+  CUSTOMER id email
+  ORDER id created_at
+
+---
+
+(source_file
+  (diagram
+    (er_diagram
+      (er_diagram_header
+        (diagram_type))
+      (common_statement
+        (title_statement
+          (line_text)))
+      (er_relationship_statement
+        (identifier)
+        (er_relationship_label)
+        (identifier))
+      (indentation)
+      (er_relationship_statement
+        (identifier)
+        (er_relationship_label)
+        (identifier))
+      (er_attribute_statement
+        (identifier)
+        (identifier)
+        (identifier))
+      (indentation)
+      (er_attribute_statement
+        (identifier)
+        (identifier)
+        (identifier)))))
+
+==================
+er diagram entity blocks
+==================
+
+erDiagram
+  Executive["Executive"] {
+    role_a Person_A
+  }
+  Product["Product"] {
+    role_b Person_B
+    role_c Person_C "50%"
+    id employee_id PK,FK "external id"
+  }
+  Executive ||--|{ Product : oversees
+
+---
+
+(source_file
+  (diagram
+    (er_diagram
+      (er_diagram_header
+        (diagram_type))
+      (indentation)
+      (er_entity_block
+        (identifier)
+        (er_entity_alias
+          (quoted_string))
+        (er_entity_attribute_statement
+          (identifier)
+          (identifier))
+        (indentation))
+      (indentation)
+      (er_entity_block
+        (identifier)
+        (er_entity_alias
+          (quoted_string))
+        (er_entity_attribute_statement
+          (identifier)
+          (identifier))
+        (er_entity_attribute_statement
+          (identifier)
+          (identifier)
+          (quoted_string))
+        (er_entity_attribute_statement
+          (identifier)
+          (identifier)
+          (er_attribute_key_list
+            (er_attribute_key)
+            (er_attribute_key))
+          (quoted_string))
+        (indentation))
+      (indentation)
+      (er_relationship_statement
+        (identifier)
+        (er_relationship_operator)
+        (identifier)
+        (er_relationship_text)))))
+
+==================
+requirement diagram details
+==================
+
+requirementDiagram
+  requirement test_req {
+    id: 1
+    text: the test text.
+    risk: high
+    verifymethod: test
+  }
+
+  element test_entity {
+    type: simulation
+    docRef: reqs/test_entity
+  }
+
+  test_entity - satisfies -> test_req
+  test_req <- copies - test_entity
+
+---
+
+(source_file
+  (diagram
+    (requirement_diagram
+      (requirement_diagram_header
+        (diagram_type))
+      (requirement_statement
+        (requirement_block
+          (requirement_kind)
+          (identifier)
+          (indentation)
+          (requirement_property_statement
+            (requirement_property_name)
+            (requirement_id))
+          (indentation)
+          (requirement_property_statement
+            (requirement_property_name)
+            (requirement_property_value))
+          (indentation)
+          (requirement_property_statement
+            (requirement_property_name)
+            (requirement_property_value))
+          (indentation)
+          (requirement_property_statement
+            (requirement_property_name)
+            (requirement_property_value))
+          (indentation)))
+      (requirement_statement
+        (requirement_block
+          (requirement_kind)
+          (identifier)
+          (indentation)
+          (requirement_property_statement
+            (requirement_property_name)
+            (requirement_property_value))
+          (indentation)
+          (requirement_property_statement
+            (requirement_property_name)
+            (requirement_property_value))
+          (indentation)))
+      (requirement_statement
+        (requirement_relationship_statement
+          (identifier)
+          (requirement_relationship_operator)
+          (requirement_relationship_type)
+          (requirement_relationship_operator)
+          (identifier)))
+      (requirement_statement
+        (requirement_relationship_statement
+          (identifier)
+          (requirement_relationship_operator)
+          (requirement_relationship_type)
+          (requirement_relationship_operator)
+          (identifier))))))
+
+==================
+mindmap details
+==================
+
+mindmap
+  root((mindmap))
+    Origins
+      ::icon(fa fa-book)
+      On effectiveness<br/>and features
+
+---
+
+(source_file
+  (diagram
+    (mindmap_diagram
+      (mindmap_diagram_header
+        (diagram_type))
+      (mindmap_statement
+        (mindmap_node_statement
+          (mindmap_root_keyword)
+          (mindmap_circle_label
+            (mindmap_label
+              (mindmap_label_fragment)))))
+      (mindmap_statement
+        (mindmap_node_statement
+          (mindmap_plain_label
+            (mindmap_label
+              (mindmap_label_fragment)))))
+      (mindmap_statement
+        (mindmap_icon_statement
+          (mindmap_icon_marker)
+          (mindmap_icon_name)))
+      (mindmap_statement
+        (mindmap_node_statement
+          (mindmap_plain_label
+            (mindmap_label
+              (mindmap_label_fragment)
+              (html_tag)
+              (mindmap_label_fragment))))))))
+
+==================
+timeline details
+==================
+
+timeline
+  title England's History Timeline
+  section Stone Age
+    7600 BC : Britain's oldest known house was built in Orkney, Scotland
+    6000 BC : Sea levels rise and Britain becomes an island.<br> The people who live here are hunter-gatherers.
+  section Bronze Age
+            : New styles of pottery and ways of burying the dead appear.
+
+---
+
+(source_file
+  (diagram
+    (timeline_diagram
+      (timeline_diagram_header
+        (diagram_type))
+      (common_statement
+        (title_statement
+          (line_text)))
+      (timeline_statement
+        (timeline_section_statement
+          (timeline_section_name)))
+      (indentation)
+      (timeline_statement
+        (timeline_event_statement
+          (timeline_time)
+          (timeline_text
+            (timeline_text_fragment))))
+      (indentation)
+      (timeline_statement
+        (timeline_event_statement
+          (timeline_time)
+          (timeline_text
+            (timeline_text_fragment)
+            (html_tag)
+            (timeline_text_fragment))))
+      (timeline_statement
+        (timeline_section_statement
+          (timeline_section_name)))
+      (indentation)
+      (timeline_statement
+        (timeline_event_statement
+          (timeline_text
+            (timeline_text_fragment)))))))
+
+==================
+gantt shorthand
+==================
+
+gantt
+title Release Plan
+dateFormat YYYY-MM-DD
+section Build
+Parser updates done a1 2026-05-01 2d
+Highlight QA active a2 after a1 3d
+section Ship
+Release milestone 2026-05-08 0d
+
+---
+
+(source_file
+  (diagram
+    (gantt_diagram
+      (gantt_diagram_header
+        (diagram_type))
+      (common_statement
+        (title_statement
+          (line_text)))
+      (gantt_date_format_statement
+        (gantt_date_format))
+      (gantt_section_statement
+        (gantt_section_name))
+      (gantt_task_statement
+        (gantt_task_label
+          (identifier)
+          (identifier))
+        (gantt_task_status)
+        (identifier)
+        (gantt_date)
+        (gantt_duration))
+      (gantt_task_statement
+        (gantt_task_label
+          (identifier)
+          (identifier))
+        (gantt_task_status)
+        (identifier)
+        (identifier)
+        (gantt_duration))
+      (gantt_section_statement
+        (gantt_section_name))
+      (gantt_task_statement
+        (gantt_task_label
+          (identifier))
+        (gantt_task_status)
+        (gantt_date)
+        (gantt_duration)))))
+
+==================
+class diagram details
+==================
+
+classDiagram
+note "From Duck till Zebra"
+Animal <|-- Duck
+note for Duck "can fly<br>can swim"
+Animal : +int age
+Animal: +isMammal()
+class Duck{
+    +String beakColor
+    +swim()
+}
+
+---
+
+(source_file
+  (diagram
+    (class_diagram
+      (class_diagram_header
+        (diagram_type))
+      (class_note_statement
+        (class_note_text
+          (class_note_label
+            (class_note_text_fragment))))
+      (class_relationship_statement
+        (identifier)
+        (class_relationship_operator)
+        (identifier))
+      (class_note_statement
+        (identifier)
+        (class_note_text
+          (class_note_label
+            (class_note_text_fragment)
+            (html_tag)
+            (class_note_text_fragment))))
+      (class_member_statement
+        (identifier)
+        (class_member
+          (class_property
+            (class_visibility)
+            (identifier)
+            (identifier))))
+      (class_member_statement
+        (identifier)
+        (class_member
+          (class_method
+            (class_visibility)
+            (identifier)
+            (class_parameter_list))))
+      (class_block
+        (identifier)
+        (class_block_member_statement
+          (class_member
+            (class_property
+              (class_visibility)
+              (identifier)
+              (identifier))))
+        (class_block_member_statement
+          (class_member
+            (class_method
+              (class_visibility)
+              (identifier)
+              (class_parameter_list))))))))
+
+==================
+journey shorthand
+==================
+
+journey
+title Checkout Journey
+section Browse
+Find product 5 Customer
+section Buy
+Pay 3 Customer Gateway
+Confirm 4 Customer
+
+---
+
+(source_file
+  (diagram
+    (journey_diagram
+      (journey_diagram_header
+        (diagram_type))
+      (common_statement
+        (title_statement
+          (line_text)))
+      (journey_section_statement
+        (journey_section_name))
+      (journey_task_statement
+        (journey_task_label
+          (identifier)
+          (identifier))
+        (number)
+        (identifier))
+      (journey_section_statement
+        (journey_section_name))
+      (journey_task_statement
+        (journey_task_label
+          (identifier))
+        (number)
+        (identifier)
+        (identifier))
+      (journey_task_statement
+        (journey_task_label
+          (identifier))
+        (number)
+        (identifier)))))
+
+==================
+sequence diagram details
+==================
+
+sequenceDiagram
+participant UI as Next.js UI
+participant API as FastAPI Router
+autonumber
+Alice->>John: Hello John, how are you?
+loop HealthCheck
+    John->>John: Fight against hypochondria
+end
+Note right of John: Rational thoughts!
+Note over API: Deployment complete
+John-->>Alice: Great!
+John->>Bob: How about you?
+Bob-->>John: Jolly good!
+
+---
+
+(source_file
+  (diagram
+    (sequence_diagram
+      (sequence_diagram_header
+        (diagram_type))
+      (sequence_participant_statement
+        (sequence_participant_keyword)
+        (sequence_actor
+          (identifier))
+        (sequence_as_keyword)
+        (sequence_message_text
+          (sequence_message_text_fragment)))
+      (sequence_participant_statement
+        (sequence_participant_keyword)
+        (sequence_actor
+          (identifier))
+        (sequence_as_keyword)
+        (sequence_message_text
+          (sequence_message_text_fragment)))
+      (sequence_autonumber_statement
+        (sequence_autonumber_keyword))
+      (sequence_message_statement
+        (sequence_actor
+          (identifier))
+        (sequence_arrow)
+        (sequence_actor
+          (identifier))
+        (sequence_message_text
+          (sequence_message_text_fragment)))
+      (sequence_loop_statement
+        (sequence_loop_keyword)
+        (sequence_message_text
+          (sequence_message_text_fragment)))
+      (indentation)
+      (sequence_message_statement
+        (sequence_actor
+          (identifier))
+        (sequence_arrow)
+        (sequence_actor
+          (identifier))
+        (sequence_message_text
+          (sequence_message_text_fragment)))
+      (end_statement)
+      (sequence_note_statement
+        (sequence_note_keyword)
+        (sequence_note_side_position)
+        (sequence_of_keyword)
+        (sequence_actor_list
+          (sequence_actor
+            (identifier)))
+        (sequence_message_text
+          (sequence_message_text_fragment)))
+      (sequence_note_statement
+        (sequence_note_keyword)
+        (sequence_note_over_position)
+        (sequence_actor_list
+          (sequence_actor
+            (identifier)))
+        (sequence_message_text
+          (sequence_message_text_fragment)))
+      (sequence_message_statement
+        (sequence_actor
+          (identifier))
+        (sequence_arrow)
+        (sequence_actor
+          (identifier))
+        (sequence_message_text
+          (sequence_message_text_fragment)))
+      (sequence_message_statement
+        (sequence_actor
+          (identifier))
+        (sequence_arrow)
+        (sequence_actor
+          (identifier))
+        (sequence_message_text
+          (sequence_message_text_fragment)))
+      (sequence_message_statement
+        (sequence_actor
+          (identifier))
+        (sequence_arrow)
+        (sequence_actor
+          (identifier))
+        (sequence_message_text
+          (sequence_message_text_fragment))))))
+
+==================
+state diagram details
+==================
+
+stateDiagram
+direction TB
+
+accTitle: This is the accessible title
+accDescr: This is an accessible description
+
+classDef notMoving fill:white
+classDef movement font-style:italic
+classDef badBadEvent fill:#f00,color:white,font-weight:bold,stroke-width:2px,stroke:yellow
+
+[*] --> Still
+Still --> [*]
+Still --> Moving
+Moving --> Still
+Moving --> Crash
+Crash --> [*]
+
+class Still notMoving
+class Moving, Crash movement
+class Crash badBadEvent
+class end badBadEvent
+
+---
+
+(source_file
+  (diagram
+    (state_diagram
+      (state_diagram_header
+        (diagram_type))
+      (flow_direction_statement
+        (direction))
+      (common_statement
+        (accessibility_title_statement
+          (line_text)))
+      (common_statement
+        (accessibility_description_statement
+          (line_text)))
+      (class_def_statement
+        (identifier)
+        (style_list
+          (style_property
+            (style_property_name)
+            (style_value))))
+      (class_def_statement
+        (identifier)
+        (style_list
+          (style_property
+            (style_property_name)
+            (style_value))))
+      (class_def_statement
+        (identifier)
+        (style_list
+          (style_property
+            (style_property_name)
+            (style_value))
+          (style_property
+            (style_property_name)
+            (style_value))
+          (style_property
+            (style_property_name)
+            (style_value))
+          (style_property
+            (style_property_name)
+            (style_value))
+          (style_property
+            (style_property_name)
+            (style_value))))
+      (state_transition_statement
+        (state_marker)
+        (state_arrow)
+        (identifier))
+      (state_transition_statement
+        (identifier)
+        (state_arrow)
+        (state_marker))
+      (state_transition_statement
+        (identifier)
+        (state_arrow)
+        (identifier))
+      (state_transition_statement
+        (identifier)
+        (state_arrow)
+        (identifier))
+      (state_transition_statement
+        (identifier)
+        (state_arrow)
+        (identifier))
+      (state_transition_statement
+        (identifier)
+        (state_arrow)
+        (state_marker))
+      (class_statement
+        (identifier_list
+          (identifier))
+        (identifier))
+      (class_statement
+        (identifier_list
+          (identifier)
+          (identifier))
+        (identifier))
+      (class_statement
+        (identifier_list
+          (identifier))
+        (identifier))
+      (class_statement
+        (identifier_list
+          (identifier))
+        (identifier)))))
+
+==================
+quadrant chart details
+==================
+
+quadrantChart
+    title Reach and engagement of campaigns
+    x-axis Low Reach --> High Reach
+    y-axis Low Engagement --> High Engagement
+    quadrant-1 We should expand
+    quadrant-2 Need to promote
+    quadrant-3 Re-evaluate
+    quadrant-4 May be improved
+    Campaign A: [0.3, 0.6]
+    Campaign B: [0.45, 0.23]
+
+---
+
+(source_file
+  (diagram
+    (quadrant_diagram
+      (quadrant_diagram_header
+        (diagram_type))
+      (common_statement
+        (title_statement
+          (line_text)))
+      (quadrant_axis_statement
+        (quadrant_axis_name)
+        (quadrant_axis_text)
+        (quadrant_axis_arrow)
+        (quadrant_axis_text))
+      (indentation)
+      (quadrant_axis_statement
+        (quadrant_axis_name)
+        (quadrant_axis_text)
+        (quadrant_axis_arrow)
+        (quadrant_axis_text))
+      (quadrant_section_statement
+        (number)
+        (quadrant_text))
+      (quadrant_section_statement
+        (number)
+        (quadrant_text))
+      (quadrant_section_statement
+        (number)
+        (quadrant_text))
+      (quadrant_section_statement
+        (number)
+        (quadrant_text))
+      (quadrant_point_statement
+        (quadrant_point_label
+          (identifier)
+          (identifier))
+        (number)
+        (number))
+      (quadrant_point_statement
+        (quadrant_point_label
+          (identifier)
+          (identifier))
+        (number)
+        (number)))))
