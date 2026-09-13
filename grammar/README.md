@@ -8,8 +8,8 @@ editor highlighting and keeps unfamiliar statements recoverable.
 Local changes add Mermaid 12 headers, Agentflow and Use Case declarations, reuse
 flowchart syntax for Swimlanes, restore sequence control keywords, and handle
 common Mermaid syntax missing upstream. Baseline families preserve tokens and
-headers without claiming complete semantic parsing; see the support table in
-[the extension README](../readme.md).
+headers without claiming complete semantic parsing; see the coverage limits in
+[the changelog](../CHANGELOG.md).
 
 `grammar.js` is the source of truth. `src/` is generated with Tree-sitter CLI
 0.27.0 and ABI 15. Zed compiles the checked-in C parser directly; it does not run

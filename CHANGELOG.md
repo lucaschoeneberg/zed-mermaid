@@ -25,7 +25,7 @@ listed alongside original author Gabriel Silva in the extension manifest.
 
 ### Manifest and tooling
 
-- Bump extension version to 0.2.0, point repository metadata to this fork, and use
+- Bump extension version to 0.2.0, retain the upstream repository metadata, and use
   the documented `rev` field instead of the legacy `commit` alias. Add `path` for
   the vendored grammar; keep the supported manifest schema version 1.
 - Pin Mermaid **12.0.0**, Tree-sitter CLI / web-tree-sitter **0.27.0**, jsdom
@@ -45,11 +45,13 @@ listed alongside original author Gabriel Silva in the extension manifest.
 - Mermaid 12's renderer defaults change to ELK / redux-color / neo for applicable
   diagram types. Explicitly set `layout: dagre`, `theme: default`, and
   `look: classic` to preserve previous rendering. `defaultRenderer` is removed;
-  use top-level `layout`. See the linked release notes in the README.
+  use top-level `layout`. See the [Mermaid 12 release notes](https://github.com/mermaid-js/mermaid/releases/tag/mermaid%4012.0.0).
 - Mermaid remains a development-time reference validator; this language-only
   extension does not provide or upgrade a preview renderer, animations, layout
   engines in other integrations, an LSP, or external icon/ZenUML integrations.
-- Grammar coverage is tiered. Some recent and complex syntax receives basic
-  token highlighting rather than complete semantic structure. See the README
-  support table. Rendering and interactive Zed behavior need a separate manual
-  smoke test; automated checks cover parser/build/query compatibility.
+- Grammar coverage is tiered. Block, C4, Kanban, XY chart, Sankey, Treemap,
+  Ishikawa, Venn, Railroad, and ZenUML receive header recognition and basic token
+  highlighting rather than complete semantic structure. Other families can also
+  fall back to basic tokens for unfamiliar syntax. Rendering and interactive Zed
+  behavior need a separate manual smoke test; automated checks cover parser,
+  build, and query compatibility.
